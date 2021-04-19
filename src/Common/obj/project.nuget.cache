@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "P+YQP6njeCdYw6E8ziY9Rg08kGzDVTP24MhmgKZluY8ppevMsrr2ZOfoL6hkSXwfPXUYoL+vget54B4g5B9Oqg==",
+  "success": true,
+  "projectFilePath": "/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/Common.csproj",
+  "expectedPackageFiles": [
+    "/Users/dominikvit/.nuget/packages/elasticsearch.net/7.12.0/elasticsearch.net.7.12.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/htmlagilitypack/1.11.32/htmlagilitypack.1.11.32.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.csharp/4.6.0/microsoft.csharp.4.6.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.extensions.configuration.abstractions/5.0.0/microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.extensions.configuration.binder/5.0.0/microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/5.0.0/microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.extensions.options.configurationextensions/5.0.0/microsoft.extensions.options.configurationextensions.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/nest/7.12.0/nest.7.12.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/rabbitmq.client/6.2.1/rabbitmq.client.6.2.1.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/system.diagnostics.diagnosticsource/5.0.0/system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/Users/dominikvit/.nuget/packages/system.threading.channels/4.7.1/system.threading.channels.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

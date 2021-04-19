@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Web</title>
+    <link rel="stylesheet" href="~/css/output.css" />
+</head>
+
+<body>
+    <div class="min-h-screen bg-white">
+        <nav class="bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex flex-1 items-center justify-between">
+                        <div class="flex-shrink-0 flex items-center">
+                            <a href="/"><img class="block h-8 w-auto" src="~/images/logo.png" /></a>
+                        </div>
+                        <div class="flex-1 w-full ml-6">
+                            <form method="GET" action="/search" class="flex items-center w-full max-w-3xl">
+                                <label for="query" class="sr-only">Vyhledávání</label>
+                                <input type="text" name="query" id="query" value='@(Context.Request.Query["query"])' autocomplete="email" required
+                                    class="appearance-none min-w-0 w-full bg-white border border-gray-100 rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400 sm:max-w-xs"
+                                    placeholder="Zadejte hledaný výraz..." />
+                                <div class="rounded-md ml-3 sm:flex-shrink-0">
+                                    <button type="submit"
+                                        class="w-full bg-pink-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-pink-500">Hledat</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main role="main">
+            @RenderBody()
+        </main>
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <footer class="bg-white">
+            <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+                <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+                    <div class="px-5 py-2">
+                        <a href="/" class="text-base text-gray-500 hover:text-gray-900">
+                            Vyhledávání
+                        </a>
+                    </div>
+
+                    <div class="px-5 py-2">
+                        <a href="/Add" class="text-base text-gray-500 hover:text-gray-900">
+                            Přidat stránku
+                        </a>
+                    </div>
+
+                    <div class="px-5 py-2">
+                        <a href="https://vse.cz" class="text-base text-gray-500 hover:text-gray-900">
+                            VŠE
+                        </a>
+                    </div>
+
+                    <div class="px-5 py-2">
+                        <a href="https://insis.vse.cz" class="text-base text-gray-500 hover:text-gray-900">
+                            INSIS
+                        </a>
+                    </div>
+
+                </nav>
+                <p class="mt-8 text-center text-base text-gray-400">
+                    &copy; 2021 Dominik Vít, Všechna práva vyhrazena.
+                </p>
+            </div>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

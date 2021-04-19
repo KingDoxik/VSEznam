@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common</name>
+    </assembly>
+    <members>
+        <member name="T:Common.Helpers.HtmlTagStripper">
+            <summary>
+            Helper class for HTML tag stripping
+            </summary>
+        </member>
+        <member name="M:Common.Helpers.HtmlTagStripper.StripHtmlTags(System.String)">
+            <summary>
+            Removes all html tags from string using Regex
+            </summary>
+            <param name="html">Html string that will be stripped</param>
+            <returns>string without html tags</returns>
+        </member>
+        <member name="T:Common.Parser.HtmlParser">
+            <summary>
+            Html parser that extracts important information from html files
+            </summary>
+        </member>
+        <member name="M:Common.Parser.HtmlParser.Parse(System.String)">
+            <summary>
+            Parses html string and return important information from the html as ParserResult
+            </summary>
+            <param name="htmlContent">Html string to be parsed</param>
+            <returns>Result</returns>
+        </member>
+        <member name="T:Common.Parser.ParserResult">
+            <summary>
+            POCO representation of parsed information from HTML file
+            </summary>
+        </member>
+        <member name="P:Common.Parser.ParserResult.Title">
+            <summary>
+            Html title
+            </summary>
+        </member>
+        <member name="P:Common.Parser.ParserResult.ShortDescription">
+            <summary>
+            Html meta description or first few paragraphs of content
+            </summary>
+        </member>
+        <member name="P:Common.Parser.ParserResult.ParsedContent">
+            <summary>
+            Content stripped of html tags
+            </summary>
+        </member>
+        <member name="P:Common.Parser.ParserResult.Metadata">
+            <summary>
+            Meta tags
+            </summary>
+        </member>
+        <member name="P:Common.Parser.ParserResult.ContainedUrls">
+            <summary>
+            Urls used in the file
+            </summary>
+        </member>
+        <member name="T:Common.Queue.IIndexingQueue">
+            <summary>
+            Queue used for storing URLs that should be parsed
+            </summary>
+        </member>
+        <member name="M:Common.Queue.IIndexingQueue.Add(System.String)">
+            <summary>
+            Adds new url to queue
+            </summary>
+            <param name="url">Url to be added</param>
+        </member>
+        <member name="M:Common.Queue.IIndexingQueue.StartListening(System.Action{System.String})">
+            <summary>
+            Listens to new Urls added to queue
+            </summary>
+            <param name="onIndexAdded">Action, that will be called when new item is added</param>
+        </member>
+        <member name="T:Common.Queue.IndexingQueueExtensions">
+            <summary>
+            Indexing Queue Extensions
+            </summary>
+        </member>
+        <member name="M:Common.Queue.IndexingQueueExtensions.AddRabbitMqIndexingQueue(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Helper function, that registers all dependencies for RabbitMqIndexingQueue to Dependency Injcetion
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <param name="queue">Queue name in RabbitMq where urls will be pushed to</param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.Queue.RabbitMqConfiguration">
+            <summary>
+            Rabbit Mq configuration file
+            </summary>
+        </member>
+        <member name="P:Common.Queue.RabbitMqConfiguration.Hostname">
+            <summary>
+            RabbitMq Hostname
+            </summary>
+        </member>
+        <member name="P:Common.Queue.RabbitMqConfiguration.UserName">
+            <summary>
+            RabbitMq Username
+            </summary>
+        </member>
+        <member name="P:Common.Queue.RabbitMqConfiguration.Password">
+            <summary>
+            RabbitMq Password
+            </summary>
+        </member>
+        <member name="T:Common.Queue.RabbitMqIndexingQueue">
+            <summary>
+            Rabbit Mq implementation of IIndexingQueue. Using RabbitMQ as queue service
+            </summary>
+        </member>
+        <member name="M:Common.Queue.RabbitMqIndexingQueue.#ctor(Microsoft.Extensions.Options.IOptions{Common.Queue.RabbitMqConfiguration},System.String)">
+            <summary>
+            Creates new RabbitMq queue
+            </summary>
+            <param name="rabbitMqOptions">RabbitMq config</param>
+            <param name="queueName">Default queue name</param>
+        </member>
+        <member name="M:Common.Queue.RabbitMqIndexingQueue.Add(System.String)">
+            <summary>
+            Adds new url to queue
+            </summary>
+            <param name="url">Url to be added</param>
+        </member>
+        <member name="M:Common.Queue.RabbitMqIndexingQueue.StartListening(System.Action{System.String})">
+            <summary>
+            Listens to new Urls added to queue
+            </summary>
+            <param name="onIndexAdded">Action, that will be called when new item is added</param>
+        </member>
+        <member name="M:Common.Queue.RabbitMqIndexingQueue.CreateConnection">
+            <summary>
+            Creates connection to Rabbit MQ
+            </summary>
+        </member>
+        <member name="M:Common.Queue.RabbitMqIndexingQueue.ConnectionExists">
+            <summary>
+            Checks, whether a connection was created. If not, creates new connection.
+            </summary>
+            <returns>True when connection exists or when connection was successfully created</returns>
+        </member>
+        <member name="T:Common.Storage.ElasticSearchConfiguration">
+            <summary>
+            Elastic Search configuration POCO
+            </summary>
+        </member>
+        <member name="P:Common.Storage.ElasticSearchConfiguration.Uri">
+            <summary>
+            Elastic Search Uri
+            </summary>
+        </member>
+        <member name="P:Common.Storage.ElasticSearchConfiguration.DefaultIndex">
+            <summary>
+            Default index name
+            </summary>
+        </member>
+        <member name="T:Common.Storage.ElasticSearchIndexStorage">
+            <summary>
+            Elastic Search Abstraction. Storage used for storing search result indexes.
+            </summary>
+        </member>
+        <member name="M:Common.Storage.ElasticSearchIndexStorage.Add(Common.Storage.SearchIndex)">
+            <summary>
+            Adds new search index to elastic search
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Common.Storage.ElasticSearchIndexStorage.Find(System.String)">
+            <summary>
+            Finds search index by url
+            </summary>
+            <param name="Url">Url</param>
+            <returns>Found search index. Null when not found</returns>
+        </member>
+        <member name="M:Common.Storage.ElasticSearchIndexStorage.Search(System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Looks for indexes matching the query
+            </summary>
+            <param name="query">String query to find</param>
+            <param name="skip">Skips x number of results. Used for pagination</param>
+            <param name="take">Takes x number of results. Used for pagination</param>
+            <param name="total">Total number of search indexes matching the query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Storage.ElasticSearchIndexStorage.Update(Common.Storage.SearchIndex)">
+            <summary>
+            Updates existing index in storage
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="T:Common.Storage.IIndexStorage">
+            <summary>
+            Storage used for storing search result indexes.
+            </summary>
+        </member>
+        <member name="M:Common.Storage.IIndexStorage.Find(System.String)">
+            <summary>
+            Finds search index by url
+            </summary>
+            <param name="Url">Url</param>
+            <returns>Found search index. Null when not found</returns>
+        </member>
+        <member name="M:Common.Storage.IIndexStorage.Add(Common.Storage.SearchIndex)">
+            <summary>
+            Adds new search index to storage
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Common.Storage.IIndexStorage.Update(Common.Storage.SearchIndex)">
+            <summary>
+            Updates existing index in storage
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Common.Storage.IIndexStorage.Search(System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Looks for indexes matching the query
+            </summary>
+            <param name="query">String query to find</param>
+            <param name="skip">Skips x number of results. Used for pagination</param>
+            <param name="take">Takes x number of results. Used for pagination</param>
+            <param name="total">Total number of search indexes matching the query</param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.Storage.IndexStorageExtensions">
+            <summary>
+            Index storage extensions
+            </summary>
+        </member>
+        <member name="M:Common.Storage.IndexStorageExtensions.AddElasticSearchIndexStorage(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Helper function that registers all dependecies for Elastic Search Index Storage to dependency injection.
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.Storage.SearchIndex">
+            <summary>
+            Search Index is object, that contains all the information about stored websites. It will be used for searching
+            </summary>
+        </member>
+    </members>
+</doc>

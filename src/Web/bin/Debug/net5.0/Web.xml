@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web</name>
+    </assembly>
+    <members>
+        <member name="M:Web.Services.IIndexingService.IndexPage(System.String)">
+            <summary>
+            Adds page to indexing queue to be scraped and store in index storage
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:Web.Services.IndexingService.IndexPage(System.String)">
+            <summary>
+            Adds page to indexing queue to be scraped and store in index storage
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:Web.Services.ISearchService.Search(System.String,System.Int32,System.Int32)">
+            <summary>
+            Searches the database for results matching the query
+            </summary>
+            <param name="query">Text to find</param>
+            <param name="page">Page number (default 1)</param>
+            <param name="pageSize">Number of results per page</param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Services.SearchService.Search(System.String,System.Int32,System.Int32)">
+            <summary>
+            Searches the database for results matching the query
+            </summary>
+            <param name="query">Text to find</param>
+            <param name="page">Page number (default 1)</param>
+            <param name="pageSize">Number of results per page</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

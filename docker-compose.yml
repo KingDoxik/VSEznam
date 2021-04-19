@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+  web:
+    build:
+        context: ./
+        dockerfile: ./Dockerfile.Web
+    restart: always
+    ports:
+        - "80:80"
+        - "443:443"
+    depends_on: 
+        - elasticsearch
+        - rabbitmq
+        - crawler
+
+  crawler:
+    build:
+        context: ./
+        dockerfile: ./Dockerfile.Crawler
+    restart: always
+    # ports:
+    #     - "6000:6000"
+    #     - "6001:6001"
+    depends_on: 
+        - elasticsearch
+        - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    # networks:
+    #     - rabbitmq_go_net
+  
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      # - discovery.seed_hosts=es02,es03
+      - cluster.initial_master_nodes=es01
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+
+volumes:
+  data01:
+    driver: local
+  

@@ -1,0 +1,14 @@
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/bin/Debug/net5.0/Common.deps.json
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/bin/Debug/net5.0/Common.dll
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/bin/Debug/net5.0/ref/Common.dll
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/bin/Debug/net5.0/Common.pdb
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/bin/Debug/net5.0/Common.xml
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.csprojAssemblyReference.cache
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.AssemblyInfoInputs.cache
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.AssemblyInfo.cs
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.csproj.CoreCompileInputs.cache
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.dll
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/ref/Common.dll
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.xml
+/Users/dominikvit/Škola/VŠE/Site/vseznam/src/Common/obj/Debug/net5.0/Common.pdb

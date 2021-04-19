@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crawler</name>
+    </assembly>
+    <members>
+        <member name="M:Crawler.CrawlerService.StartCrawler">
+            <summary>
+            Starts listening to queue. When new url is added to queue, starts scrapper. All found urls on the page adds back to the queue
+            </summary>
+        </member>
+        <member name="M:Crawler.Services.IScrapperService.ScrapeAsync(System.String)">
+            <summary>
+            Gets data from the url and extracts all important information and saves in in Index Storage
+            </summary>
+            <param name="url">Url to be scaped</param>
+            <returns></returns>
+        </member>
+        <member name="T:Crawler.Services.ScrapperResult">
+            <summary>
+            Result of scrapping
+            </summary>
+        </member>
+        <member name="M:Crawler.Services.ScrapperService.ScrapeAsync(System.String)">
+            <summary>
+            Gets data from the url and extracts all important information and saves in in Index Storage
+            </summary>
+            <param name="url">Url to be scaped</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{082165C1-68A1-4142-AB5D-C9826FB45731}|Default">
+  <MonoDevelop.Ide.ItemProperties.src.Crawler PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Web/Views/Home/Search.cshtml">
+    <Files>
+      <File FileName="src/Web/Program.cs" Line="23" Column="20" />
+      <File FileName="src/Web/Views/Home/Index.cshtml" />
+      <File FileName="src/Web/Views/Home/Search.cshtml" Line="66" Column="30" />
+      <File FileName="src/Web/Views/Home/Add.cshtml" />
+      <File FileName="src/Web/Controllers/HomeController.cs" />
+      <File FileName="src/Web/Services/ISearchService.cs" />
+      <File FileName="src/Common/Storage/ElasticSearchConfiguration.cs" />
+      <File FileName="src/Common/Storage/ElasticSearchIndexStorage.cs" />
+      <File FileName="src/Crawler/CrawlerService.cs" />
+      <File FileName="src/Crawler/Services/ScrapperService.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Vseznam" expanded="True">
+            <Node name="src" expanded="True">
+              <Node name="Common" expanded="True">
+                <Node name="Parser" expanded="True" />
+              </Node>
+              <Node name="Crawler" expanded="True" />
+              <Node name="Web" expanded="True">
+                <Node name="Views" expanded="True">
+                  <Node name="Home" expanded="True">
+                    <Node name="Search.cshtml" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.src.Web PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

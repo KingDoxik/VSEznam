@@ -1,0 +1,50 @@
+
+# https://hub.docker.com/_/microsoft-dotnet-core
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
+WORKDIR /sln
+
+# First copy the solution file, if you have a nuget config copy it here as well
+COPY *.sln .
+
+# Then copy the source projects, they all get put into the same folder
+COPY src/Web/*.csproj ./src/Web/
+COPY src/Crawler/*.csproj ./src/Crawler/
+COPY src/Common/*.csproj ./src/Common/
+COPY tests/Crawler.Tests/*.csproj ./tests/Crawler.Tests/
+# This line then moves the project files to the correct folders
+
+# RUN for file in $(ls *.csproj); do mkdir -p src/${file%\.*}/ && mv $file src/${file%\.*}/; done
+
+# Next copy the test projects, agains they all get put into the same folder
+# COPY tests/*/*.csproj ./
+# COPY tests/Web.Tests/*.csproj ./tests/Web.Tests/
+# COPY tests/MojeStravovani.Application.Tests/*.csproj ./tests/MojeStravovani.Application.Tests/
+# COPY tests/MojeStravovani.Infrastructure.Tests/*.csproj ./tests/MojeStravovani.Infrastructure.Tests/
+# COPY tests/MojeStravovani.Domain.Tests/*.csproj ./tests/MojeStravovani.Domain.Tests/
+# This line then moves the test project files to the correct folders
+# RUN for file in $(ls *.csproj); do mkdir -p tests/${file%\.*}/ && mv $file tests/${file%\.*}/; done
+
+# Now we can restore all the packages that we need
+RUN dotnet restore
+
+# Now to copy everything across
+COPY . .
+
+# ENV ASPNETCORE_URLS=http://*:80
+
+# We can now build everything, but we don't need to restore, so tell dotnet to skip that
+RUN dotnet build -c Release
+
+# And then we can test, but this time we don't build, as we've alredy done that
+# You can just do a test instead of build then test, but I've found diagnosing issues easier this way
+# RUN dotnet test -c Release --no-restore --no-build
+
+# Lastly we need to publish everything
+RUN dotnet publish src/Crawler/Crawler.csproj -c Release --no-restore --no-build -o /sln/dist
+
+# We're going to base the image we use on the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim
+WORKDIR /app
+COPY --from=build /sln/dist ./
+EXPOSE 80
+ENTRYPOINT ["dotnet", "Crawler.dll"]
