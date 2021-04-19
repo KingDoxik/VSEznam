@@ -1,0 +1,1 @@
+Škoní projekt VŠEznam
